@@ -98,22 +98,14 @@ VALUES
 GO
 
 -- b as 1st value
-SELECT letter, 
-       CASE 
-            WHEN letter = 'b' THEN 1
-            ELSE 2
-       END AS Ranking
+SELECT letter
 FROM dbo.letters
-ORDER BY Ranking, letter;
+ORDER BY CASE WHEN letter = 'b' THEN 1 ELSE 2 END, letter;
 GO
 
 -- b as last value
 
-SELECT letter, 
-       CASE 
-            WHEN letter = 'b' THEN 2
-            ELSE 1
-       END AS Ranking
+SELECT letter
 FROM dbo.letters
-ORDER BY Ranking, letter;
+ORDER BY CASE WHEN letter = 'b' THEN 2 ELSE 1 END, letter;
 GO
